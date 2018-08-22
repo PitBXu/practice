@@ -1,0 +1,6 @@
+$(function () {
+
+    $('.menu .item')
+        .tab();
+
+});
