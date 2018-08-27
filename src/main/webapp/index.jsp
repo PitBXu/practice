@@ -42,14 +42,14 @@
                         $(".ui.main.segment").load("pages/selectTask.jsp");
                     })
                 ;
-                $("#modelManager")
+                $("#selectTaskStep1")
                     .on('click',function(){
-                        $(".ui.main.segment").load("Settings/Seting.jsp");
+                        $(".ui.main.segment").load("pages/selectTaskStep1.jsp");
                     })
                 ;
-                $("#offerConfig")
+                $("#grantTask")
                     .on('click',function(){
-                        $(".ui.main.segment").load("Settings/configOffer.jsp");
+                        $(".ui.main.segment").load("pages/grantTask.jsp");
                     })
                 ;
                 $("#candidateManager")
@@ -74,7 +74,7 @@
     <div class="bar" style="width: 100%;height: 65px;">
         <div class="logo" style="position: absolute; left: 3%">
             <a href="http://www.evergrande.com">
-                <img src="dist/assets/images/logo2.jpg" style="width: auto; height: 50px; float: left;">
+                <img src="dist/assets/images/logo2.jpg" style="width: auto; height: 50px; float: left; margin-top: 7px">
             </a>
             <img src="dist/assets/images/name.png" style="width: 20px;float: left;">
         </div>
@@ -101,7 +101,7 @@
                 </a>
                 <a class="item" id="positionManager">
                     <i class="ui user icon"></i>
-                    人员管理
+                    消息中心
                 </a>
                 <div class="item">
                     <i class="ui flag icon"></i>
@@ -113,11 +113,10 @@
                 <a class="item right" id="selectTask">
                     查看任务
                 </a>
-                <a class="item">
-                    <i class="ui pie chart icon"></i>
-                    报表统计
-                </a>
-                <a class="item">
+                <a class="item" id="grantTask">
+                任务分配
+            </a>
+                <a class="item" id="selectTaskStep1">
                     <i class="ui setting icon"></i>
                     配置中心
                 </a>

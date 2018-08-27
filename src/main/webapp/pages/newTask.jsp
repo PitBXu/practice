@@ -48,6 +48,14 @@
                         }
                     }});
                 initCalendar();
+                $('.coupled.modal')
+                    .modal({
+                        allowMultiple: true
+                    })
+                ;
+                $('.selectPerson.modal')
+                    .modal('attach events', '.save.modal .approve.button')
+                ;
                 $("#mySubmit").on('click',function(){
                     $(".save.modal")
                         .modal('show')
@@ -118,21 +126,40 @@
 <body>
 
 <div>
-    <a class="ui big red ribbon label">
+    <a class="ui big green ribbon label">
         <i class="ui add icon"></i>
         新建任务
     </a>
     <p></p>
     <div class="ui content">
         <form class="ui form" action="#" enctype="multipart/form-data">
-            <div class="field">
-                <label>任务基本信息</label>
+            <div class="required field">
+                <h4>任务基本信息</h4>
                 <div class="two fields">
                     <div class="three wide field">
-                        <input type="text" placeholder="任务名称">
+                        <label>任务名称：</label>
+                        <input type="text" placeholder="少于15个字" maxlength="15">
                     </div>
-                    <div class="thirteen wide field">
-                        <input type="text" placeholder="任务描述">
+                    <div class="two wide field">
+                        <label>任务时长（天）：</label>
+                        <input type="number">
+                    </div>
+                    <div class="eleven wide field">
+                        <label>任务内容：</label>
+                        <input type="text" placeholder="少于200个字" maxlength="200">
+                    </div>
+                </div>
+            </div>
+            <%--<div class="field">
+                <div class="fields">
+                    <div class="one wide fild">
+                        <h4>任务阶段：</h4>
+                    </div>
+                    <div class="two wide fild">
+                        <div class="ui mini basic icon buttons">
+                            <button class="ui button" onclick="addStep()" data-tooltip="添加阶段"><i class="add icon"></i></button>
+                            <button class="ui button" onclick="deleteStep()" data-tooltip="删除阶段"><i class="delete icon"></i></button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -158,24 +185,22 @@
                             <input type="text" placeholder="描述">
                         </div>
                     </div>
+                </div>--%>
+            <div class="field">
+                <div class="fields">
+                    <div class="one wide fild">
+                        <h4>添加附件：</h4>
+                    </div>
                 </div>
+            </div>
                 <div class="field" id="defaultField"></div>
                 <div class="filed">
                     <div class="actions">
                         <div class="fields">
-                            <div class="four wide field"></div>
                             <div class="three wide field">
-                                <button class="ui blue icon button" onclick="addStep()">
-                                    <i class="add icon"></i>
-                                    添加阶段
-                                </button>
+                                <input type="file" placeholder="上传附件...">
                             </div>
-                            <div class="three wide field">
-                                <button class="ui red icon button" onclick="deleteStep()">
-                                    <i class="delete icon"></i>
-                                    删除阶段
-                                </button>
-                            </div>
+                            <div class="seven wide field"></div>
                             <div class="three wide field">
                                 <button class="ui black left labeled icon button">
                                     <i class="minus circle icon"></i>
@@ -209,19 +234,53 @@
         <div class="ui approve green button">确认</div>
     </div>
 </div>
-<div class="ui save mini modal">
+<div class="ui save coupled mini modal">
     <div class="header">
         <i class="ui check circle icon"></i>
         保存成功
     </div>
     <div class="content">
+        <p>任务名称：恒大集团练手系统</p>
+        <p>任务描述：这是一个给恒大集团新员工的练手系统</p>
+        <p>预期时间：24天</p>
         <p>
-            单击“查看任务”选项卡以分配任务
+            任务附件：资料.zip
+            <a class="ui icon button">
+                <i class="ui cloud download icon"></i>
+                点击下载
+            </a>
         </p>
     </div>
     <div class="actions">
-        <div class="ui approve green button">确认</div>
+        <div class="ui approve blue button">分配人员</div>
         <div class="ui green button">转到查看任务</div>
+    </div>
+</div>
+
+<div class="ui selectPerson coupled modal">
+    <div class="header">
+        <i class="ui random icon"></i>
+        任务分配
+    </div>
+    <div class="content">
+        <div class="ui three column doubling grid">
+            <div class="two wide column"></div>
+            <div class="two wide column">
+                <h4>选择角色：</h4>
+            </div>
+            <div class="eight wide column">
+                <select name="staff" class="ui fluid dropdown">
+                    <option value="">选择角色</option>
+                    <option value="staff1">1-杨旭</option>
+                    <option value="staff2">2-徐广松</option>
+                </select>
+            </div>
+            <div class="two wide column"></div>
+        </div>
+    </div>
+    <div class="actions">
+        <div class="ui green button">确认</div>
+        <div class="ui button">取消</div>
     </div>
 </div>
 
